@@ -4,7 +4,7 @@ body {
 }
 header,
 footer,
-.content,
+main,
 article {
   border: 1px solid grey;
   margin: 5px;
@@ -18,7 +18,7 @@ footer {
   background-color: #444;
   margin-bottom: 5px;
 }
-.content {
+main {
   background-color: #ddd;
 }
 nav ul {
