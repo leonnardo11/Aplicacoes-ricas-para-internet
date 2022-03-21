@@ -5,44 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Exercicio 1</title>
-    <style>
-      body {
-        font-family: Verdana, sans-serif;
-        font-size: 0.8em;
-      }
-      div#header,
-      div#footer,
-      div#content,
-      div#post {
-        border: 1px solid grey;
-        margin: 5px;
-        margin-bottom: 15px;
-        padding: 8px;
-        background-color: white;
-      }
-      div#header,
-      div#footer {
-        color: white;
-        background-color: #444;
-        margin-bottom: 5px;
-      }
-      div#content {
-        background-color: #ddd;
-      }
-      div#menu ul {
-        margin: 0;
-        padding: 0;
-      }
-      div#menu ul li {
-        display: inline;
-        margin: 5px;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <header>
+    <header id="header">
       <h1>Monday Times</h1>
-      <nav class="menu">
+      <nav id="menu">
         <ul>
           <li>News</li>
           <li>Sports</li>
@@ -51,7 +19,7 @@
       </nav>
     </header>
 
-    <main>
+    <main class="content">
       <h2>News Section</h2>
 
       <article>
