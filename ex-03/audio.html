@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio</title>
+</head>
+<body>
+    <h1>Player de Audio</h1>
+    <audio id="audio">
+        <source src="video.ogg" type="audio/ogg">
+        <source src="audio.mp3" type="audio/mpeg">
+        Seu Navegador não suporta arquivo de audio
+    </audio>
+
+    <img src="https://www.petlove.com.br/dicas/wp-content/uploads/2020/10/Cachorro-culpa-Petlove.jpg" alt="" srcset="" onclick="playAudio()">
+    <img src="https://media2.giphy.com/media/3o7bu3XilJ5BOiSGic/giphy.gif" alt="" onclick="pauseAudio()" >
+
+    <script>
+        var audio = document.getElementById("audio");
+
+        function playAudio() {
+            audio.play();
+        }
+
+        function pauseAudio() {
+            audio.pause();
+            console.log(audio.currentTime);
+        }
+
+
+    </script>
+</body>
+</html>

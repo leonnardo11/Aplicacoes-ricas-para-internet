@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Player de Vídeo</title>
+  </head>
+  <body>
+    <h1>Player de Vídeo</h1>
+    <video id="myVideo" width="320" height="176" controls>
+      <source src="video.mp4" type="video/mp4" />
+      <source src="mov_bbb.ogg" type="video/ogg" />
+      Seu Navegador não suporte Player em HTML5.
+    </video>
+    <br />
+    <meter id="meter" max="100" value="0">Meter</meter>
+
+    <button onclick="playVideo()" type="button">Play Video</button>
+    <button onclick="pauseVideo()" type="button">Pause Video</button>
+
+    <script>
+      var video = document.getElementById("myVideo");
+
+      //Função para pegar o valor do progress
+      function meter() {
+        setInterval(function () { //Intervalo de tempo para atualizar o valor do meter 
+          document.getElementById("meter").value = Math.round( //Math.round arredonda o valor para cima
+            (video.currentTime / video.duration) * 100 //Valor do tempo atual dividido pelo tempo total do video 
+          );
+        });
+      }
+
+      function playVideo() {
+        video.play();
+        meter();
+      }
+
+      function pauseVideo() {
+        video.pause();
+      }
+
+    </script>
+  </body>
+</html>
