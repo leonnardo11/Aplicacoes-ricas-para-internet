@@ -14,26 +14,31 @@
       Seu Navegador não suporte Player em HTML5.
     </video>
     <br />
-    <meter id="meter" max="100" value="0">Meter</meter>
+    <meter id="meter" value="0">Meter</meter>
 
     <button onclick="playVideo()" type="button">Play Video</button>
     <button onclick="pauseVideo()" type="button">Pause Video</button>
 
     <script>
       var video = document.getElementById("myVideo");
+      var meter = document.getElementById("meter");
+
+      video.ontimeupdate = function() {
+       console.log(video.currentTime);
+       meter.value = video.currentTime;
+       
+      };
+
+      video.onloadedmetadata = function() {
+        meter.max = video.duration;
+      };
 
       //Função para pegar o valor do progress
-      function meter() {
-        setInterval(function () { //Intervalo de tempo para atualizar o valor do meter 
-          document.getElementById("meter").value = Math.round( //Math.round arredonda o valor para cima
-            (video.currentTime / video.duration) * 100 //Valor do tempo atual dividido pelo tempo total do video 
-          );
-        });
-      }
+  
 
       function playVideo() {
         video.play();
-        meter();
+
       }
 
       function pauseVideo() {
