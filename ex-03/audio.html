@@ -1,35 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Audio</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Player de Audio</h1>
     <audio id="audio">
-        <source src="video.ogg" type="audio/ogg">
-        <source src="audio.mp3" type="audio/mpeg">
-        Seu Navegador não suporta arquivo de audio
+      <source src="video.ogg" type="audio/ogg" />
+      <source src="audio.mp3" type="audio/mpeg" />
+      Seu Navegador não suporta arquivo de audio
     </audio>
 
-    <img src="https://www.petlove.com.br/dicas/wp-content/uploads/2020/10/Cachorro-culpa-Petlove.jpg" alt="" srcset="" onclick="playAudio()">
-    <img src="https://media2.giphy.com/media/3o7bu3XilJ5BOiSGic/giphy.gif" alt="" onclick="pauseAudio()" >
-
+    <img
+      onclick="playAudio()"
+      src="https://www.seekpng.com/png/detail/0-4114_play-button-play-icon-button-orange-gradient-circle.png"
+      alt=""
+      id="playButton"
+      width="200px"
+    />
+    <img
+      style="display: none"
+      src="https://media1.giphy.com/media/3o7bu3XilJ5BOiSGic/giphy.gif"
+      alt=""
+      id="loadingButton"
+    />
+    <img
+    style="display: none"
+    src="https://png.pngtree.com/png-vector/20190120/ourlarge/pngtree-pause-vector-icon-png-image_470715.jpg"
+    alt=""
+    id="loadingButton"
+    />
     <script>
-        var audio = document.getElementById("audio");
+      var audio = document.getElementById("audio");
+      let playbutton = document.getElementById("playButton");
+      let loadingButton = document.getElementById("loadingButton");
+      let pausebutton = document.getElementById("pausebutton");
 
-        function playAudio() {
-            audio.play();
-        }
+      function playAudio() {
+        playbutton.style.display = "none";
+        loadingButton.style.display = "block";
+        audio.play();
+      }
 
-        function pauseAudio() {
-            audio.pause();
-            console.log(audio.currentTime);
-        }
-
-
+      audio.onloadeddata = () => {
+        loadingButton.style.display = "none";
+        pausebutton.style.display = "block";
+      };
     </script>
-</body>
+  </body>
 </html>

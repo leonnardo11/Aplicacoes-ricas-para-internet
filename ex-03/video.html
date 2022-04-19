@@ -23,22 +23,18 @@
       var video = document.getElementById("myVideo");
       var meter = document.getElementById("meter");
 
-      video.ontimeupdate = function() {
+      video.ontimeupdate = function() { // Função para atualizar o valor do meter
        console.log(video.currentTime);
        meter.value = video.currentTime;
        
       };
 
-      video.onloadedmetadata = function() {
-        meter.max = video.duration;
+      video.onloadedmetadata = function() { // Função para atualizar o valor do meter com o tamanho do video em segundos
+        meter.max = video.duration; // Atualiza o valor máximo do meter com o tempo total do vídeo
       };
-
-      //Função para pegar o valor do progress
   
-
       function playVideo() {
         video.play();
-
       }
 
       function pauseVideo() {

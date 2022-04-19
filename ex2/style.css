@@ -13,7 +13,7 @@ h1{
 }
 
 input{
-    width: 500px;
+    width: 100%;
     padding: 10px;
     margin: 10px;
     border-radius: 5px;
@@ -26,7 +26,8 @@ input:valid {
 }
 
 input:invalid {
-    border: 1px solid rgb(255, 0, 0)
+    border: 1px solid rgb(255, 0, 0);
+    content: "Invalid input";
 }
 
 
@@ -42,6 +43,12 @@ fieldset{
 
 fieldset legend{
     font-weight: bold;
+    font-size: 1.2em;
+}
+
+fieldset:nth-child(1) label{
+    font-size: 0.7em;
+    font-weight: 500;
 }
 
 form{
@@ -88,8 +95,9 @@ input[type=color]:hover{
 }
 
 label{
-    font-size: 15px;
+    font-size: 1.5em;
     font-weight: bold;
+    margin-left: 2%;
 }
 
 button{

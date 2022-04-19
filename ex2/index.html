@@ -11,10 +11,11 @@
 <body>
     <main>
         <h1>Formulário de Satisfação</h1>
-        <form action="">
+        <form action="" id="form">
             <fieldset>
                 <legend>Dados Pessoais </legend>
-                <input type="text" name="name" id="name" placeholder="Qual é o seu nome? " required>
+                <label for="name">Nome:</label>
+                <input type="text" name="name" id="name" placeholder="Qual é o seu nome? "  required>
                 <input type="email" name="email" id="email" placeholder="Qual é o seu email? " required>
                 <label for="date">Data de Nascimento: </label>
                 <input type="date" name="birthdate" id="birthdate" required>
@@ -37,7 +38,6 @@
                     <option value="Manaus">
                     <option value="Porto Alegre">
                 </datalist>
-                
             </fieldset>
 
             <fieldset>
@@ -70,9 +70,27 @@
                     <input type="color" name="color" id="color" placeholder="teste">
             </fieldset>
 
-            <button type="submit">Enviar</button>
+            <button type="submit" onclick="validateData(event)">Enviar</button>
         </form>
     </main>
+
+
+    <script>
+        function validateData(event){
+          event.preventDefault();
+
+          let formElement = document.getElementById("form");
+          let result = formElement.reportValidity();
+
+          if(result == true){
+              let nameElement = document.getElementById("name");
+
+              if(nameElement.value == " "){
+                  alert("Preencha o campo nome");
+          }
+        }
+    </script>
+
 </body>
 
 </html>
